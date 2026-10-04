@@ -1,0 +1,24 @@
+[Unit]
+Description=Device Health Monitor & Auto-Recovery Agent
+Documentation=man:device_health_monitor(8)
+After=network.target
+
+[Service]
+Type=simple
+ExecStart=/usr/local/bin/device_health_monitor
+Restart=on-failure
+RestartSec=5
+StandardOutput=journal
+StandardError=journal
+
+# Security settings
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=read-only
+PrivateTmp=true
+
+# Logging
+Environment=LOG_LEVEL=INFO
+
+[Install]
+WantedBy=multi-user.target

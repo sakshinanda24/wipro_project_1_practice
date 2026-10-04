@@ -1,0 +1,29 @@
+{
+    "monitoring_interval_seconds": 10,
+    "thresholds": {
+        "cpu_usage_percent": 80,
+        "memory_usage_percent": 85,
+        "disk_usage_percent": 90,
+        "temperature_critical_celsius": 85,
+        "temperature_warning_celsius": 75
+    },
+    "network": {
+        "interface": "eth0",
+        "check_interval_seconds": 30
+    },
+    "service_monitor": {
+        "critical_service": "sshd",
+        "restart_on_failure": true
+    },
+    "recovery": {
+        "kill_process_threshold_percent": 95,
+        "max_restart_attempts": 3,
+        "restart_delay_seconds": 5
+    },
+    "logging": {
+        "level": "INFO",
+        "file": "/var/log/device_health_monitor.log",
+        "max_size_mb": 10,
+        "max_files": 5
+    }
+}
